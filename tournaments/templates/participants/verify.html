@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<body>
+    {% block content %}
+    <form enctype="multipart/form-data" action="/verify/" method="post"> {% csrf_token %}
+        <div class="input-field">
+            <input type="text" placeholder="numero de documento" required for= {{form.documento}}>ingrese su numero de documento aqui </input>
+            <i class="uil uil-user"></i>
+        </div>
+        <div class="input-field button">
+            <button href="#" class="text ">verificar</button>
+        </div> 
+    </form>
+{%endblock%}
+</body>

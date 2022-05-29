@@ -20,7 +20,7 @@ import participants.views as participants
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tournaments/', tournaments.list, name='tournaments'),
+    path('', tournaments.list, name='tournaments'),
     path('register/', participants.register, name = 'register'),
     path('pending/', participants.pendigVerification),
     path('verified/', participants.verified),

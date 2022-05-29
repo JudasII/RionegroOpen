@@ -1,1 +1,1 @@
-web: gunicorn rioopen.wsgi
+web: gunicorn rioOpen.wsgi

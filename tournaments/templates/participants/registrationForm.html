@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <!-- === Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- ===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <!-- ===== CSS ===== -->
     {% load static %}
     <!--link rel="stylesheet" href="{% static 'participants/styles.css' %}"-->
-         
+    <link href="../../static/participants/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../../static/participants/css/fontawesome.css" />
+    <link rel="stylesheet" href="../../static/participants/css/templatemo-style.css" />
+    <link rel="stylesheet" href="../../static/participants/css/owl.css" />
+    <link rel="stylesheet" href="../../static/participants/css/lightbox.css" />
+
 </head>
+
 <body>
-    
+
     <div class="container">
         <div class="forms">
 
             <!-- Registration Form -->
             <div class="form signup">
-                <span class="title"> Registro rionegro open</span>
-            {% block content %}
+                <span class="title"> Registro rionegro open</span> {% block content %}
                 <form enctype="multipart/form-data" action="/register/" method="post"> {% csrf_token %}
                     <div class="input-field">
-                        <input type="text" placeholder="Nombres" required for= {{form.nombres}}>
+                        <input type="text" placeholder="Nombres" required for={ {form.nombres}}>
                         <i class="uil uil-user"></i>
                     </div>
 
@@ -40,25 +48,20 @@
                     </div>
 
                     <div class="input-field">
-                        <input type="text" placeholder="Pais" required for= {{form.pais}}>
+                        <input type="text" placeholder="Pais" required for={ {form.pais}}>
                         <i class="uil uil-map"></i>
                     </div>
 
                     <div class="input-field">
-                        <input type="text" placeholder="Ciudad" required for= {{form.ciudad}}>
+                        <input type="text" placeholder="Ciudad" required for={ {form.ciudad}}>
                         <i class="uil uil-map-marker"></i>
                     </div>
 
                     <div class="date">
                         <div class="bd">
-                            <span class="text">fecha de nacimiento</span> 
+                            <span class="text">fecha de nacimiento</span>
                         </div>
-                        <input
-                        type="date"
-                        min="1930-04-01"
-                        max="2020-01-01"
-                        required
-                        for = {{form.fechaNacimiento}}>
+                        <input type="date" min="1930-04-01" max="2020-01-01" required for={ {form.fechaNacimiento}}>
                         <span class="validity"></span>
                         <i class="uil uil-calendar-alt"></i>
                     </div>
@@ -66,7 +69,7 @@
                         <input type="text" placeholder="Academia" required for={{form.academia}}>
                     </div>
                     <div class="cinturon">
-                        <select name="cinturon" id="cinturon" required  for={{form.cinturon}}>
+                        <select name="cinturon" id="cinturon" required for={{form.cinturon}}>
                             <option value="" selected disabled hidden>Cinturón</option>
                             <option value="blanco">Blanco</option>
                             <option value="gris">Gris</option>
@@ -78,17 +81,17 @@
                             <option value="marron">Marrón</option>
                             <option value="pretta">Pretta</option>
                           </select>
-                    </div> 
+                    </div>
                     <div class="genero">
-                        <select name="genero" id="genero" required  for={{form.genero}}>
+                        <select name="genero" id="genero" required for={{form.genero}}>
                             <option value="" selected disabled hidden>Genero</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
                           </select>
-                    </div> 
-                    
+                    </div>
+
                     <div class="categoria">
-                        <select name="Categoria" id="Categoria" required  for={{form.Categoria}} >
+                        <select name="Categoria" id="Categoria" required for={{form.Categoria}}>
                             <option value="" selected disabled hidden>Categoría</option>
                             <option value="Gallo">Gallo</option>
                             <option value="Pluma">Pluma</option>
@@ -104,7 +107,7 @@
                                 <a href="https://website-ibjjf-production.s3.amazonaws.com/bmQdLtJLQAxHcdrHJ52Vu8DY?response-content-disposition=inline%3B%20filename%3D%22tabela-gi-kg-opens.pdf%22%3B%20filename%2A%3DUTF-8%27%27tabela-gi-kg-opens.pdf&response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUPTFRNARGXPAI7HM%2F20220525%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220525T023657Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=22c9b9bc8094fb1b10478251bc45b582d9bf347f73b3bfeeca0e87219a77eab0" target="_blank" class="text ">tabla oficial de categorías IBJJF</a>
                             </span>
                         </div>
-                    </div> 
+                    </div>
                     <label for="categoria">Atleta con Gi</label>
                     <i class="uil uil-weight"></i>
                     <div class="payment">
@@ -131,7 +134,7 @@
                             verifique su inscripción
                         </a>
                     </span>
-                </div>
+                    </div>
             </div>
         </div>
     </div>
@@ -139,4 +142,208 @@
     <!--<script src="script.js"></script>-->
 
 </body>
+
 </html>
+
+
+
+<body>
+    <div id="page-wraper">
+        <section class="section contact-me" data-section="section4" style="align-content: left;">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Registro Rionegro Open</h2>
+                    <div class="line-dec"></div>
+                    <span>Completa el formulario para registrarte en el torneo</span>
+                </div>
+                {% block content %}
+
+                <div class="row">
+                    <div class="right-content">
+                        <div class="container">
+                            <form id="contact" enctype="multipart/form-data" action="/register/" method="post"> {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input name="nombres" type="text" class="form-control" id="nombres" placeholder="Nombres" required for={{form.nombres}} />
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input name="apellidos" type="text" class="form-control" id="apellidos" placeholder="Apellidos" required for={{form.apellidos}} />
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input name="documento" type="text" class="form-control" id="documento" placeholder="Documento" required for={{form.documento}} />
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input name="pais" type="text" class="form-control" id="pais" placeholder="País" required for={{form.pais}} />
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input name="ciudad" type="text" class="form-control" id="apellidos" placeholder="Ciudad" required for={{form.ciudad}} />
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input name="academia" type="text" class="form-control" id="academia" placeholder="Academia" required for={{form.academia}} />
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            <span>Fecha de Nacimiento</span><br>
+                                            <input name="fecha_de_nacimiento" type="date" min="1930-04-01" max="2020-01-01" class="form-control" id="fecha_de_nacimiento" placeholder="Fecha de nacimiento" required for={{form.fechaNacimiento }} />
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <select name=" cinturon " id="cinturon" required for={{form.cinturon}} class="form-control" style="opacity: 0.4;">
+                                            <option value="" selected disabled hidden>Cinturón</option>
+                                            <option value="blanco">Blanco</option>
+                                            <option value="gris">Gris</option>
+                                            <option value="amarillo">Amarillo</option>
+                                            <option value="naranja">Naranja</option>
+                                            <option value="verde">Verde</option>
+                                            <option value="azul">Azúl</option>
+                                            <option value="purpura">Purpura</option>
+                                            <option value="marron">Marrón</option>
+                                            <option value="pretta">Pretta</option>
+                                            </select>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <select name="genero" id="genero" required for={{form.genero}} class="form-control" style="opacity: 0.4;">
+                                            <option value="" selected disabled hidden>Genero</option>
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Femenino">Femenino</option>
+                                            </select>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12" style="margin-top: 3%;">
+                                        <fieldset>
+                                            <select name="Categoria" id="Categoria" required for={{form.Categoria}} class="form-control" style="opacity: 0.4;">
+                                                <option value="" selected disabled hidden>Categoría</option>
+                                                <option value="Gallo">Gallo</option>
+                                                <option value="Pluma">Pluma</option>
+                                                <option value="Liviano">Liviano</option>
+                                                <option value="Medio">Medio</option>
+                                                <option value="Medio Pesado">Medio Pesado</option>
+                                                <option value="Pesado">Pesado</option>
+                                                <option value="Super Pesado">Super Pesado</option>
+                                                <option value="Pesadisimo">Pesadisimo</option>
+                                            </select>
+                                            <div>
+                                                <span class="text">verifique su categoría de peso segun edad y genero
+                                                <a href="https://website-ibjjf-production.s3.amazonaws.com/bmQdLtJLQAxHcdrHJ52Vu8DY?response-content-disposition=inline%3B%20filename%3D%22tabela-gi-kg-opens.pdf%22%3B%20filename%2A%3DUTF-8%27%27tabela-gi-kg-opens.pdf&response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUPTFRNARGXPAI7HM%2F20220525%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220525T023657Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=22c9b9bc8094fb1b10478251bc45b582d9bf347f73b3bfeeca0e87219a77eab0" target="_blank" class="text ">tabla oficial de categorías IBJJF</a>
+                                            </span>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12" style="margin-top: 2%;">
+                                        <label "><h5>Atleta con Gi</h5></label>
+                                        <i class="uil uil-weight "></i>
+                                        <div>
+                                            <span>realice el pago de su inscripción
+                                                <a href="https://www.youtube.com " target =  "_blank ">pagar</a>
+                                                <i class="uil uil-money-insert "></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payment-verify ">
+                        <p>adjunte aquí el comprobante del pago de su inscripción</p>
+                            
+                            <input type="file " id="myFile " name="filename " required=" " for="{{form.filename}} ">
+                        <i class="uil uil-image-v "></i>   
+                    </div>
+                                    <div class="col-md-12 " style="margin-top: 3%; ">
+                                        <fieldset>
+                                            <button type="submit " id="form-submit " class="button ">
+                                            Inscribirme
+                                            </button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                            {%end block%}
+                            <div class="login-signup ">
+                                <span class="text ">¿ya ha completado su registro?
+                                    <a target="_blank " 
+                                        class="btn btn-secondary pull-right " style="opacity: 0.85; " 
+                                        href="/verify/ ">
+                                        verifique su inscripción
+                                    </a>
+                                </span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../static/participants/vendor/jquery/jquery.min.js "></script>
+    <script src="../../static/participants/vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+
+    <script src="../../static/participants/js/isotope.min.js "></script>
+    <script src="../../static/participants/js/owl-carousel.js "></script>
+    <script src="../../static/participants/js/lightbox.js "></script>
+    <script src="../../static/participants/js/custom.js "></script>
+    <script>
+        //according to loftblog tut
+        $(".main-menu li:first ").addClass("active ");
+
+        var showSection = function showSection(section, isAnimate) {
+            var direction = section.replace(/#/, " "),
+                reqSection = $(".section ").filter(
+                    '[data-section=" ' + direction + ' "]'
+                ),
+                reqSectionPos = reqSection.offset().top - 0;
+
+            if (isAnimate) {
+                $("body, html ").animate({
+                        scrollTop: reqSectionPos
+                    },
+                    800
+                );
+            } else {
+                $("body, html ").scrollTop(reqSectionPos);
+            }
+        };
+
+        var checkSection = function checkSection() {
+            $(".section ").each(function() {
+                var $this = $(this),
+                    topEdge = $this.offset().top - 80,
+                    bottomEdge = topEdge + $this.height(),
+                    wScroll = $(window).scrollTop();
+                if (topEdge < wScroll && bottomEdge > wScroll) {
+                    var currentId = $this.data("section "),
+                        reqLink = $("a ").filter("[href*=\\# " + currentId + "] ");
+                    reqLink
+                        .closest("li ")
+                        .addClass("active ")
+                        .siblings()
+                        .removeClass("active ");
+                }
+            });
+        };
+
+        $(".main-menu ").on("click ", "a ", function(e) {
+            e.preventDefault();
+            showSection($(this).attr("href "), true);
+        });
+
+        $(window).scroll(function() {
+            checkSection();
+        });
+    </script>
+</body>

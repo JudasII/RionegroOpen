@@ -13,7 +13,7 @@
     <!-- ===== CSS ===== -->
     {% load static %}
     <!--link rel="stylesheet" href="{% static 'participants/styles.css' %}"-->
-    <link href="../../static/participants/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../static/participants/vendor/bootstrap/css/bootstrap.css"  />
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="../../static/participants/css/fontawesome.css" />
@@ -24,14 +24,14 @@
 </head>
 
 <body>
-
+<!--
     <div class="container">
         <div class="forms">
 
-            <!-- Registration Form -->
+            <!-- Registration Form --
             <div class="form signup">
-                <span class="title"> Registro rionegro open</span> {% block content %}
-                <form enctype="multipart/form-data" action="/register/" method="post"> {% csrf_token %}
+                <span class="title"> Registro rionegro open</span> 
+                <form enctype="multipart/form-data" action="/register/" method="post"> 
                     <div class="input-field">
                         <input type="text" placeholder="Nombres" required for={ {form.nombres}}>
                         <i class="uil uil-user"></i>
@@ -83,11 +83,7 @@
                           </select>
                     </div>
                     <div class="genero">
-                        <select name="genero" id="genero" required for={{form.genero}}>
-                            <option value="" selected disabled hidden>Genero</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                          </select>
+                        
                     </div>
 
                     <div class="categoria">
@@ -125,7 +121,7 @@
                     <button href="#" class="text ">inscribir</button>
                 </div> 
                 </form>
-                {% endblock %}
+
                 <div class="login-signup">
                     <span class="text">¿ya ha completado su registro?
                         <a target="_blank" 
@@ -157,7 +153,6 @@
                     <span>Completa el formulario para registrarte en el torneo</span>
                 </div>
                 {% block content %}
-
                 <div class="row">
                     <div class="right-content">
                         <div class="container">
@@ -165,43 +160,53 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <input name="nombres" type="text" class="form-control" id="nombres" placeholder="Nombres" required for={{form.nombres}} />
+                                            <input name="nombres" type="text" class="form-control" id="nombres" placeholder="Nombres" required for={{form.nombres}} 
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <input name="apellidos" type="text" class="form-control" id="apellidos" placeholder="Apellidos" required for={{form.apellidos}} />
+                                            <input name="apellidos" type="text" class="form-control" id="apellidos" placeholder="Apellidos" required for={{form.apellidos}
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <input name="documento" type="text" class="form-control" id="documento" placeholder="Documento" required for={{form.documento}} />
+                                            <input name="documento" type="text" class="form-control" id="documento" placeholder="Documento" required for={{form.documento}} 
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <input name="pais" type="text" class="form-control" id="pais" placeholder="País" required for={{form.pais}} />
+                                            <input name="pais" type="text" class="form-control" id="pais" placeholder="País" required for={{form.pais}}
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <input name="ciudad" type="text" class="form-control" id="apellidos" placeholder="Ciudad" required for={{form.ciudad}} />
+                                            <input name="ciudad" type="text" class="form-control" id="apellidos" placeholder="Ciudad" required for={{form.ciudad}} 
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <input name="academia" type="text" class="form-control" id="academia" placeholder="Academia" required for={{form.academia}} />
+                                            <input name="academia" type="text" class="form-control" id="academia" placeholder="Academia" required for={{form.academia}} 
                                         </fieldset>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <fieldset>
                                             <span>Fecha de Nacimiento</span><br>
-                                            <input name="fecha_de_nacimiento" type="date" min="1930-04-01" max="2020-01-01" class="form-control" id="fecha_de_nacimiento" placeholder="Fecha de nacimiento" required for={{form.fechaNacimiento }} />
+                                            <input  type="date" min="1930-04-01" max="2020-01-01" class="form-control" placeholder="Fecha de nacimiento" required for={{form.fechaNacimiento }} 
                                         </fieldset>
                                     </div>
+
+                                                                
+                                    <div class="payment-verify col-md-6">
+                                        <fieldset>
+                                            <span>adjunte aquí el comprobante del pago de su inscripción</span>
+                                                <form action="/action_page.php">
+                                                <input type="file" id="myFile" name="filename" required for={{form.filename}}
+                                        </fieldset>
+                                    </div> 
+
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <select name=" cinturon " id="cinturon" required for={{form.cinturon}} class="form-control" style="opacity: 0.4;">
+                                            <select name=" cinturon " id="cinturon" class="form-control" style="opacity: 0.4;" required for={{form.cinturon}}
                                             <option value="" selected disabled hidden>Cinturón</option>
                                             <option value="blanco">Blanco</option>
                                             <option value="gris">Gris</option>
@@ -217,7 +222,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <select name="genero" id="genero" required for={{form.genero}} class="form-control" style="opacity: 0.4;">
+                                            <select name="genero" id="genero"  class="form-control" style="opacity: 0.4;"required for={{form.genero}} 
                                             <option value="" selected disabled hidden>Genero</option>
                                             <option value="Masculino">Masculino</option>
                                             <option value="Femenino">Femenino</option>
@@ -225,8 +230,8 @@
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12" style="margin-top: 3%;">
-                                        <fieldset>
-                                            <select name="Categoria" id="Categoria" required for={{form.Categoria}} class="form-control" style="opacity: 0.4;">
+                                        <fieldset >
+                                            <select name="Categoria" id="Categoria" class="form-control" style="opacity: 0.4;"  required for={{form.Categoria}}
                                                 <option value="" selected disabled hidden>Categoría</option>
                                                 <option value="Gallo">Gallo</option>
                                                 <option value="Pluma">Pluma</option>
@@ -237,11 +242,7 @@
                                                 <option value="Super Pesado">Super Pesado</option>
                                                 <option value="Pesadisimo">Pesadisimo</option>
                                             </select>
-                                            <div>
-                                                <span class="text">verifique su categoría de peso segun edad y genero
-                                                <a href="https://website-ibjjf-production.s3.amazonaws.com/bmQdLtJLQAxHcdrHJ52Vu8DY?response-content-disposition=inline%3B%20filename%3D%22tabela-gi-kg-opens.pdf%22%3B%20filename%2A%3DUTF-8%27%27tabela-gi-kg-opens.pdf&response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUPTFRNARGXPAI7HM%2F20220525%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220525T023657Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=22c9b9bc8094fb1b10478251bc45b582d9bf347f73b3bfeeca0e87219a77eab0" target="_blank" class="text ">tabla oficial de categorías IBJJF</a>
-                                            </span>
-                                            </div>
+                                        
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12" style="margin-top: 2%;">
@@ -253,13 +254,7 @@
                                                 <i class="uil uil-money-insert "></i>
                                         </div>
                                     </div>
-                                    
-                                    <div class="payment-verify ">
-                        <p>adjunte aquí el comprobante del pago de su inscripción</p>
-                            
-                            <input type="file " id="myFile " name="filename " required=" " for="{{form.filename}} ">
-                        <i class="uil uil-image-v "></i>   
-                    </div>
+    
                                     <div class="col-md-12 " style="margin-top: 3%; ">
                                         <fieldset>
                                             <button type="submit " id="form-submit " class="button ">
@@ -269,7 +264,7 @@
                                     </div>
                                 </div>
                             </form>
-                            {%end block%}
+                            {%endblock%}
                             <div class="login-signup ">
                                 <span class="text ">¿ya ha completado su registro?
                                     <a target="_blank " 
@@ -290,13 +285,13 @@
 
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
-    <script src="../../static/participants/vendor/jquery/jquery.min.js "></script>
-    <script src="../../static/participants/vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <script src="../../static/participants/vendor/jquery/jquery.min.js"></script>
+    <script src="../../static/participants/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../../static/participants/js/isotope.min.js "></script>
-    <script src="../../static/participants/js/owl-carousel.js "></script>
-    <script src="../../static/participants/js/lightbox.js "></script>
-    <script src="../../static/participants/js/custom.js "></script>
+    <script src="../../static/participants/js/isotope.min.js"></script>
+    <script src="../../static/participants/js/owl-carousel.js"></script>
+    <script src="../../static/participants/js/lightbox.js"></script>
+    <script src="../../static/participants/js/custom.js"></script>
     <script>
         //according to loftblog tut
         $(".main-menu li:first ").addClass("active ");

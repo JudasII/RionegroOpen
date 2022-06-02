@@ -23,6 +23,7 @@ def ageDivision(_age):
 def register(request):
     if request.method == 'POST':
         form = participants(data= request.POST,files=request.FILES)
+        print(form.errors)
         if (form.is_valid()):
             bday=   form.cleaned_data['fechaNacimiento'].replace("-","/") + ' 00:00:00'
             edad= age(datetime.strptime(bday, '%Y/%m/%d %H:%M:%S'))

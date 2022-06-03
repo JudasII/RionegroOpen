@@ -12,7 +12,9 @@ def age(birthdate):
     age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
     return age
 def ageDivision(_age):
-    if(_age < 18):
+    if(_age >= 5 & _age < 12):
+        return " niño"
+    elif(_age >=12 & _age < 18):
         return "juvenil"
     elif(_age >=18 & _age < 35 ):
         return "adulto"
@@ -20,6 +22,8 @@ def ageDivision(_age):
         return "master"
     else:
         return "adulto"
+
+
 def register(request):
     if request.method == 'POST':
         form = participants(data= request.POST,files=request.FILES)
@@ -70,3 +74,8 @@ def hasPendingVerification(request):
                 return redirect(participantNotFound)
     return render(request, 'participants/verify.html',{'form': participantID})
 
+def weight(request):
+    return render(request, 'participants/tablaPesos.html')
+
+def pay(request):
+    return render(request, 'participants/pago.html')

@@ -145,7 +145,7 @@
 
 <body>
     <div id="page-wraper">
-        <section class="section contact-me" data-section="section4" style="align-content: left;">
+        <section class="section contact-me" data-section="section4" style="align-content: right;">
             <div class="container">
                 <div class="section-heading">
                     <h2>Registro Rionegro Open</h2>
@@ -216,7 +216,7 @@
                                             <option value="azul">Azúl</option>
                                             <option value="purpura">Purpura</option>
                                             <option value="marron">Marrón</option>
-                                            <option value="pretta">Pretta</option>
+                                            <option value="negro">Negro</option>
                                             </select>
                                         </fieldset>
                                     </div>
@@ -233,6 +233,7 @@
                                         <fieldset >
                                             <select name="Categoria" id="Categoria" class="form-control" style="opacity: 0.4;"  required for={{form.Categoria}}
                                                 <option value="" selected disabled hidden>Categoría</option>
+                                                <option value="Gallo">Infantil</option>
                                                 <option value="Gallo">Gallo</option>
                                                 <option value="Pluma">Pluma</option>
                                                 <option value="Liviano">Liviano</option>
@@ -245,15 +246,6 @@
                                         
                                         </fieldset>
                                     </div>
-                                    <div class="col-md-12" style="margin-top: 2%;">
-                                        <label "><h5>Atleta con Gi</h5></label>
-                                        <i class="uil uil-weight "></i>
-                                        <div>
-                                            <span>realice el pago de su inscripción
-                                                <a href="https://www.youtube.com " target =  "_blank ">pagar</a>
-                                                <i class="uil uil-money-insert "></i>
-                                        </div>
-                                    </div>
     
                                     <div class="col-md-12 " style="margin-top: 3%; ">
                                         <fieldset>
@@ -265,6 +257,31 @@
                                 </div>
                             </form>
                             {%endblock%}
+
+                            <div class="col-md-12" style="margin-top: 2%;">
+                                <div class="row">
+                                    <div class="col-md-12 " style="margin-top: 3%; ">
+                                        <fieldset>
+                                          <button class ="button">
+                                            <a href="/weightTable/" target="_blank">verifique aquí las categorías según la IBJJF</a>
+                                          </button>
+                                          
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <label "><h5>IMPORTANTE: el peso corresponde al atleta con Gi</h5></label>
+                                <label "><h5>IMPORTANTE: la categoría infantil no tiene división por peso</h5></label>
+                                <div class="row">
+                                    <div class="col-md-12 " style="margin-top: 3%; ">
+                                        <fieldset>
+                                          <button class ="button">
+                                            <a href="/payment/" target="_blank">realice el pago de su inscripción</a>
+                                          </button>
+                                          
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="login-signup ">
                                 <span class="text ">¿ya ha completado su registro?
                                     <a target="_blank " 

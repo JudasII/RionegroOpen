@@ -21,6 +21,8 @@ import participants.views as participants
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', tournaments.list, name='tournaments'),
+    path('weightTable/', participants.weight),
+    path('payment/', participants.pay),
     path('register/', participants.register, name = 'register'),
     path('pending/', participants.pendigVerification),
     path('verified/', participants.verified),

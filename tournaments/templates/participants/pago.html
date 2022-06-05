@@ -1,17 +1,120 @@
 <!DOCTYPE html>
-<body style="margin: 0px; background: #fefefe; height: 100%">
-    <div class="section-heading">
-        <div class="line-dec">
-        <span>puede realizar una transferencia a la cuenta de ahorros bancolombia 123456789 o nequi 3001234567</span>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- ===== CSS ===== -->
+    {% load static %}
+    <!--link rel="stylesheet" href="{% static 'participants/styles.css' %}"-->
+    <link rel="stylesheet" href="../../static/participants/vendor/bootstrap/css/bootstrap.css"  />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../../static/participants/css/fontawesome.css" />
+    <link rel="stylesheet" href="../../static/participants/css/templatemo-style.css" />
+    <link rel="stylesheet" href="../../static/participants/css/owl.css" />
+    <link rel="stylesheet" href="../../static/participants/css/lightbox.css" />
+
+</head>
+
+
+<body>
+    <div id="page-wraper">
+        <section class="section my-services" data-section="section2">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="section-heading">
+                        <h2>Para realizar el pago de su inscripción</h2>
+                        <div class="line-dec"></div>
+                        <span>IMPORTANTE: la primera etapa de inscripciones tiene un valor de $100.000 COP</span> 
+                        <div class="line-dec"></div>
+                        <span>puede utilizar el siguiente codigo QR, o realizar una transferencia directamente a la cuenta de ahorros bancolombia: 12345679</span>
+                        <div class="line-dec"></div>
+                        <span>IMPORTANTE: una vez realizada la transferencia adjunte el comprobante en el formulario de inscripción</span>    
+                        <div class="line-dec"></div>
+                        <span>en caso de tener inconvenientes con el pago de la inscripción, contacte a la administración del evento</span>
+                        <div class="col-md-12 " style="margin-top: 3%; ">
+                            <fieldset>
+                            <button class ="button">
+                                <a href="https://api.whatsapp.com/send?phone=573216694474" target="_blank">contactar admon</a>
+                            </button>
+                        </div>
+                        
+                    </div>
+
+                    
+                </div>
+            </div>
+            <div>
+                <img style="display: block;-webkit: none;-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="../../static/participants/images/QR.jpeg" width="450" height="600">
+            </div>
+            <div>
+                <img style="display: block;-webkit: none;-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="../../static/participants/images/QRNequi.jpeg" width="450" height="600">
+            </div>
+        </section>
+
     </div>
-        <div class="line-dec">
-        <span>IMPORTANTE: una vez realizada la transferencia adjunte el comprobante en el formulario de inscripción</span>
-    </div>
-        <div class="line-dec">
-        <span>en caso de tener inconvenientes con el pago de la inscripción contacte via whatsapp al numero 123456789</span>
-    </div>
-    </div>
-    <div>
-        <img style="display: block;-webkit: none;-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="../../static/participants/images/QR.jpeg" width="634" height="428">
-    </div>
+    
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../static/participants/vendor/jquery/jquery.min.js"></script>
+    <script src="../../static/participants/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../../static/participants/js/isotope.min.js"></script>
+    <script src="../../static/participants/js/owl-carousel.js"></script>
+    <script src="../../static/participants/js/lightbox.js"></script>
+    <script src="../../static/participants/js/custom.js"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
 </body>

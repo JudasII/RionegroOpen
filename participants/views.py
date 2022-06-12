@@ -24,6 +24,8 @@ def ageDivision(_age):
         return "adulto"
 
 def register(request):
+    if('verify' in request.GET):
+        print("hola mundo!")
     if request.method == 'POST':
         form = participants(data= request.POST,files=request.FILES)
         print(form.errors)
@@ -48,7 +50,7 @@ def register(request):
             competitor.verificado = False
             competitor.save()
             return redirect (pendigVerification)
-
+    print(request.GET)
     return render(request, 'participants/registrationForm.html', {'form' : participants} )
 
 def pendigVerification(request):

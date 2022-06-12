@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 import tournaments.views as tournaments
 import participants.views as participants
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +32,4 @@ urlpatterns = [
     path('verified/', participants.verified),
     path('userNotFOund/', participants.participantNotFound),
     path('verify/',participants.hasPendingVerification),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

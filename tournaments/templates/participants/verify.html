@@ -31,9 +31,9 @@
                     <form enctype="multipart/form-data" action="/verify/" method="post"> {% csrf_token %}
                         <div class="col-md-12">
                             
-                            <input type="text" placeholder="numero de documento" class="form-control" required for= {{form.documento}}
+                            <input type="text" placeholder="numero de documento" class="form-control" required for= {{form.documento}}>
                         </div>
-                        <div class="input-field button">
+                        <div class="input-field button" style="margin-top: 3%; ">
                             <button href="#" class="text ">verificar</button>
                         </div> 
                     </form>

@@ -208,6 +208,7 @@
                                         <fieldset>
                                             <select name=" cinturon " id="cinturon" class="form-control" style="opacity: 0.4;" required for={{form.cinturon}}>
                                             <option value="" selected disabled hidden>Cinturón</option>
+                                            <option>Blanco</option>
                                         </select>
                                         </fieldset>
                                     </div>
@@ -222,8 +223,9 @@
                                     </div>
                                     <div class="col-md-12" style="margin-top: 3%;">
                                         <fieldset >
-                                            <select name="Categoria" id="Categoria" class="form-control" style="opacity: 0.4;"  required for={{form.Categoria}}
+                                            <select name="Categoria" id="Categoria" class="form-control" style="opacity: 0.4;"  required for={{form.Categoria}}>
                                                 <option value="" selected disabled hidden>Categoría</option>
+                                                <option>libre</option>
                                             </select>
                                         
                                         </fieldset>
@@ -238,15 +240,13 @@
                                     </div>
                                 </div>
                             </form>
-                            {%endblock%}
-
                             <div class="col-md-12" style="margin-top: 2%;">
                                 <div class="row">
                                     <div class="col-md-12 " style="margin-top: 3%; ">
                                         <fieldset>
-                                          <button class ="button">
-                                            <a href="/weightTable/" target="_blank">verifique aquí las categorías según la IBJJF</a>
-                                          </button>
+                                          <a class ="button" href="/weightTable/" target="_blank">
+                                            <button >verifique aquí las categorías según la IBJJF</button>
+                                          </a>
                                           
                                         </fieldset>
                                     </div>
@@ -258,9 +258,9 @@
                                 <div class="row">
                                     <div class="col-md-12 " style="margin-top: 3%; ">
                                         <fieldset>
-                                          <button class ="button">
-                                            <a href="/payment/" target="_blank">realice el pago de su inscripción</a>
-                                          </button>
+                                          <a class ="button"  href="/payment/" target="_blank">
+                                            <button>realice el pago de su inscripción</button>
+                                          </a>
                                           
                                         </fieldset>
                                     </div>
@@ -270,13 +270,18 @@
                                 <span class="text ">¿ya ha completado su registro?</span>
                                 <div class="col-md-12 " style="margin-top: 3%; ">
                                     <fieldset>
-                                      <button class ="button">
-                                        <a href="/verify/" target="_blank">verifique su inscripción</a>
-                                      </button>
+                                      
+                                        <a href="/verify/" target="_blank" class="button">
+                                            <button >verifique su inscripcion</button>
+                                        </a>
+                                      
                                       
                                     </fieldset>
                                 </div>
                             </div>
+                            
+                            {%endblock%}
+
                             
                         </div>
                     </div>

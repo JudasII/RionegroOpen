@@ -23,7 +23,6 @@ def ageDivision(_age):
     else:
         return "adulto"
 
-
 def register(request):
     if request.method == 'POST':
         form = participants(data= request.POST,files=request.FILES)

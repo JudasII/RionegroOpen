@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <input id="fechaNacimiento" type="date" min="1930-04-01" max="2020-01-01" class="form-control" placeholder="Fecha de nacimiento">
+    <select id="selector-1">
+        <option value="" selected disabled hidden>Genero</option>
+        <option value="1">Masculino</option>
+        <option value="2">Femenino</option>
+    </select>
+
+    <select id="selector-2">
+        <option value="" selected disabled hidden>Categoría</option> 
+    </select>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            var cinturonJUV = {
+                "":"Categoría",
+                "Gallo": "Gallo ( Max 57.5 kg )",
+                "Pluma": "Pluma ( Max 64 kg )",
+                "Pena": "Pena ( Max 70 kg)",
+                "Liviano": "Liviano ( Max 76 kg)",
+                "Medio": "Medio ( Max 82.3 kg)",
+                "Medio Pesado": "Medio Pesado ( Max 88.3 kg)",
+                "Pesado": "Pesado ( Max 94.3 kg)",
+                "Super Pesado": "Super Pesado ( Max 100.5 kg)",
+                "Pesadisimo": "Pesadisimo( libre )"
+            };
+            var femaleWeight = {
+                "":"Categoría",
+                "Pluma": "Pluma ( Max 53.5 kg )",
+                "Pena": "Pena ( Max 58.5 kg)",
+                "Liviano": "Liviano ( Max 64 kg)",
+                "Medio": "Medio ( Max 69 kg)",
+                "Medio Pesado": "Medio Pesado ( Max 74 kg)",
+                "Pesado": "Pesado ( libre)",
+
+            };
+            $("#selector-1").change(function() {
+                var valor = $("#selector-1 :selected").text();
+                if (valor == "Masculino") {
+                    $("#selector-2").empty();
+                    $.each(maleWeight, function(key, value) {
+                        $("#selector-2").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+                }
+                else if(valor == "Femenino") {
+                    $("#selector-2").empty();
+                    $.each(femaleWeight, function(key, value) {
+                        $("#selector-2").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+                }
+            });
+        });
+    </script>
+<script>
+    $(document).ready(function (){
+        var infantWeight ={
+            "Infantil":"Infantil",
+            "Juvenil":"Juvenil",
+        };
+        $("#fechaNacimiento").change(function() {
+            var date = new Date($('#fechaNacimiento').val());
+            console.log(date.getFullYear())
+            if (date.getFullYear() <= "2002") {
+                $("#selector-2").empty();
+                $.each(infantWeight, function(key, value) {
+                    $("#selector-2").append($("<option></option>")
+                        .attr("value", key)
+                        .text(value));
+                });
+                }
+        })
+    });
+</script>
+</body>
+
+</html>

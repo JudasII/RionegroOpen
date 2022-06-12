@@ -191,7 +191,7 @@
                                     <div class="col-md-6">
                                         <fieldset>
                                             <span>Fecha de Nacimiento</span><br>
-                                            <input  type="date" min="1930-04-01" max="2020-01-01" class="form-control" placeholder="Fecha de nacimiento" required for={{form.fechaNacimiento }} 
+                                            <input  id="fechaNacimiento" type="date" min="1930-04-01" max="2020-01-01" class="form-control" placeholder="Fecha de nacimiento" required for={{form.fechaNacimiento }} 
                                         </fieldset>
                                     </div>
 
@@ -206,18 +206,9 @@
 
                                     <div class="col-md-6">
                                         <fieldset>
-                                            <select name=" cinturon " id="cinturon" class="form-control" style="opacity: 0.4;" required for={{form.cinturon}}
+                                            <select name=" cinturon " id="cinturon" class="form-control" style="opacity: 0.4;" required for={{form.cinturon}}>
                                             <option value="" selected disabled hidden>Cinturón</option>
-                                            <option value="blanco">Blanco</option>
-                                            <option value="gris">Gris</option>
-                                            <option value="amarillo">Amarillo</option>
-                                            <option value="naranja">Naranja</option>
-                                            <option value="verde">Verde</option>
-                                            <option value="azul">Azúl</option>
-                                            <option value="purpura">Purpura</option>
-                                            <option value="marron">Marrón</option>
-                                            <option value="negro">Negro</option>
-                                            </select>
+                                        </select>
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
@@ -233,15 +224,6 @@
                                         <fieldset >
                                             <select name="Categoria" id="Categoria" class="form-control" style="opacity: 0.4;"  required for={{form.Categoria}}
                                                 <option value="" selected disabled hidden>Categoría</option>
-                                                <option value="Gallo">Infantil</option>
-                                                <option value="Gallo">Gallo</option>
-                                                <option value="Pluma">Pluma</option>
-                                                <option value="Liviano">Liviano</option>
-                                                <option value="Medio">Medio</option>
-                                                <option value="Medio Pesado">Medio Pesado</option>
-                                                <option value="Pesado">Pesado</option>
-                                                <option value="Super Pesado">Super Pesado</option>
-                                                <option value="Pesadisimo">Pesadisimo</option>
                                             </select>
                                         
                                         </fieldset>
@@ -269,8 +251,10 @@
                                         </fieldset>
                                     </div>
                                 </div>
-                                <label "><h5>IMPORTANTE: el peso corresponde al atleta con Gi</h5></label>
-                                <label "><h5>IMPORTANTE: la categoría infantil no tiene división por peso</h5></label>
+                                <div class="col-md-12 " style="margin-top: 3%; ">
+                                    <label ><h5>IMPORTANTE: el peso corresponde al atleta con Gi</h5></label>
+                                    <label ><h5>IMPORTANTE: la categoría infantil no tiene división por peso</h5></label>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-12 " style="margin-top: 3%; ">
                                         <fieldset>
@@ -282,12 +266,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="login-signup ">
+                            <div class="col-md-12 " style="margin-top: 3%; ">
                                 <span class="text ">¿ya ha completado su registro?</span>
                                 <div class="col-md-12 " style="margin-top: 3%; ">
                                     <fieldset>
                                       <button class ="button">
-                                        <a href="/verify/" target="_blank">verifique su inscripción/a>
+                                        <a href="/verify/" target="_blank">verifique su inscripción</a>
                                       </button>
                                       
                                     </fieldset>
@@ -311,53 +295,91 @@
     <script src="../../static/participants/js/owl-carousel.js"></script>
     <script src="../../static/participants/js/lightbox.js"></script>
     <script src="../../static/participants/js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
     <script>
-        //according to loftblog tut
-        $(".main-menu li:first ").addClass("active ");
+        $(document).ready(function() {
+            var maleWeight = {
+                "":"Categoría",
+                "Infantil": "Infantil",
+                "Gallo": "Gallo ( Max 57.5 kg )",
+                "Pluma": "Pluma ( Max 64 kg )",
+                "Pena": "Pena ( Max 70 kg)",
+                "Liviano": "Liviano ( Max 76 kg)",
+                "Medio": "Medio ( Max 82.3 kg)",
+                "Medio Pesado": "Medio Pesado ( Max 88.3 kg)",
+                "Pesado": "Pesado ( Max 94.3 kg)",
+                "Super Pesado": "Super Pesado ( Max 100.5 kg)",
+                "Pesadisimo": "Pesadisimo( libre )"
+            };
+            var femaleWeight = {
+                "":"Categoría",
+                "Infantil": "Infantil",
+                "Pluma": "Pluma ( Max 53.5 kg )",
+                "Pena": "Pena ( Max 58.5 kg)",
+                "Liviano": "Liviano ( Max 64 kg)",
+                "Medio": "Medio ( Max 69 kg)",
+                "Medio Pesado": "Medio Pesado ( Max 74 kg)",
+                "Pesado": "Pesado ( libre)",
 
-        var showSection = function showSection(section, isAnimate) {
-            var direction = section.replace(/#/, " "),
-                reqSection = $(".section ").filter(
-                    '[data-section=" ' + direction + ' "]'
-                ),
-                reqSectionPos = reqSection.offset().top - 0;
-
-            if (isAnimate) {
-                $("body, html ").animate({
-                        scrollTop: reqSectionPos
-                    },
-                    800
-                );
-            } else {
-                $("body, html ").scrollTop(reqSectionPos);
-            }
-        };
-
-        var checkSection = function checkSection() {
-            $(".section ").each(function() {
-                var $this = $(this),
-                    topEdge = $this.offset().top - 80,
-                    bottomEdge = topEdge + $this.height(),
-                    wScroll = $(window).scrollTop();
-                if (topEdge < wScroll && bottomEdge > wScroll) {
-                    var currentId = $this.data("section "),
-                        reqLink = $("a ").filter("[href*=\\# " + currentId + "] ");
-                    reqLink
-                        .closest("li ")
-                        .addClass("active ")
-                        .siblings()
-                        .removeClass("active ");
+            };
+            $("#genero").change(function() {
+                var valor = $("#genero :selected").text();
+                if (valor == "Masculino") {
+                    $("#Categoria").empty();
+                    $.each(maleWeight, function(key, value) {
+                        $("#Categoria").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+                }
+                else if(valor == "Femenino") {
+                    $("#Categoria").empty();
+                    $.each(femaleWeight, function(key, value) {
+                        $("#Categoria").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
                 }
             });
-        };
-
-        $(".main-menu ").on("click ", "a ", function(e) {
-            e.preventDefault();
-            showSection($(this).attr("href "), true);
         });
+    </script>
+    <script>
+        $(document).ready(function (){
+            var kidBelt ={
+                "Blanco":"Blanco",
+                "Amarillo":"Amarillo",
+                "Naranja":"Naranja",
+                "Verde":"Verde",
+            };
+            var adultBelt ={
+                "Blanco":"Blanco",
+                "Azul":"Azul",
+                "Purpura":"Purpura",
+                "Marrón":"Marrón",
+                "Negro": "Negro"
+            };
 
-        $(window).scroll(function() {
-            checkSection();
+            $("#fechaNacimiento").change(function() {
+                var date = new Date($('#fechaNacimiento').val());
+                console.log(date.getFullYear())
+                if (date.getFullYear() >= "2002") {
+                    $("#cinturon").empty();
+                    $.each(kidBelt, function(key, value) {
+                        $("#cinturon").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+                }
+                else{
+                    $("#cinturon").empty();
+                    $.each(adultBelt, function(key, value) {
+                        $("#cinturon").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+                }
+            })
         });
     </script>
 </body>

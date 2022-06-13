@@ -66,7 +66,7 @@ def hasPendingVerification(request):
             
             try: 
                 competitor= Competitor.objects.get(documento = docForm.cleaned_data['documento'])
-                return redirect('verified') if competitor.verificado else redirect(pendigVerification)
+                return redirect(verified) if competitor.verificado else redirect(pendigVerification)
             except :
                 return redirect(participantNotFound)
     return render(request, 'participants/verify.html',{'form': participantID})

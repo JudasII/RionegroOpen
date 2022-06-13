@@ -33,8 +33,6 @@ class CompetitorAdmin(admin.ModelAdmin):
         'verificado'
     ]
 
-    
     readonly_fields = ['comprobantePago']
-    
 
 admin.site.register(Competitor,CompetitorAdmin)

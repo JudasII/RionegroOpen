@@ -23,3 +23,4 @@ class Competitor(models.Model):
     def admin_photo(self):
         return mark_safe('<img src="{}" width="100" />'.format(self.comprobantePago.url))
 
+    

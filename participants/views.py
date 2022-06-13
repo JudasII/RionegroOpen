@@ -30,7 +30,6 @@ def register(request):
         if (form.is_valid()):
             bday=   form.cleaned_data['fechaNacimiento'].replace("-","/") + ' 00:00:00'
             edad= age(datetime.strptime(bday, '%Y/%m/%d %H:%M:%S'))
-
             competitor = Competitor()
             competitor.nombres = form.cleaned_data['nombres']
             competitor.apellidos= form.cleaned_data['apellidos']

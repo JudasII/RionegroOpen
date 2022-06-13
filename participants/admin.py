@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Competitor       
+from .models import Competitor    
+from django.utils.html import mark_safe
 # Register your models here.
 
 
@@ -8,7 +9,7 @@ class CompetitorAdmin(admin.ModelAdmin):
     #actions_on_bottom = False
     #actions_on_top = True
 
-    fields = ('nombres', 'apellidos','documento', 'genero','academia', 'cinturon','pais','ciudad','fechaNacimiento', 'edad', 'categoriaEdad', 'categoriaPeso', 'comprobantePago','verificado')
+    fields = ('nombres', 'apellidos','documento', 'genero','academia', 'cinturon','pais','ciudad','fechaNacimiento', 'edad', 'categoriaEdad', 'categoriaPeso', 'comprobantePago','verificado', 'comprobante')
     list_display = [
         'nombres',
         'apellidos',
@@ -33,6 +34,14 @@ class CompetitorAdmin(admin.ModelAdmin):
         'verificado'
     ]
 
-    readonly_fields = ['comprobantePago']
+    readonly_fields = ['comprobantePago', "comprobante"]
+    def comprobante(self, obj):
+        print(obj)
+        return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
+            url = obj.comprobantePago.url,
+            width=obj.comprobantePago.width,
+            height=obj.comprobantePago.height,
+            )
+        )
 
 admin.site.register(Competitor,CompetitorAdmin)

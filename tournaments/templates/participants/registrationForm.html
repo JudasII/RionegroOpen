@@ -68,21 +68,23 @@
                                             <input name="academia" type="text" class="form-control" id="academia" placeholder="Academia" required for={{form.academia}} 
                                         </fieldset>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <fieldset>
                                             <span>Fecha de Nacimiento</span><br>
                                             <input  id="fechaNacimiento" type="date" min="1930-04-01" max="2020-01-01" class="form-control" placeholder="Fecha de nacimiento" required for={{form.fechaNacimiento }} 
                                         </fieldset>
                                     </div>
 
-                                                                
-                                    <div class="payment-verify col-md-6">
+                                    <div class="col-md-6">
                                         <fieldset>
-                                            <span>adjunte aquí el comprobante del pago de su inscripción</span>
-                                                <form action="/action_page.php">
-                                                <input type="file" id="myFile" name="filename" required for={{form.filename}}
+                                            <select name="genero" id="genero"  class="form-control" style="opacity: 0.4;"required for={{form.genero}} >
+                                            <option value="" selected disabled hidden>Genero</option>
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Femenino">Femenino</option>
+                                            </select>
                                         </fieldset>
-                                    </div> 
+                                    </div>                
+
 
                                     <div class="col-md-6">
                                         <fieldset>
@@ -90,15 +92,6 @@
                                             <option value="" selected disabled hidden>Cinturón</option>
                                             <option>Blanco</option>
                                         </select>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <fieldset>
-                                            <select name="genero" id="genero"  class="form-control" style="opacity: 0.4;"required for={{form.genero}} 
-                                            <option value="" selected disabled hidden>Genero</option>
-                                            <option value="Masculino">Masculino</option>
-                                            <option value="Femenino">Femenino</option>
-                                            </select>
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12" style="margin-top: 3%;">
@@ -110,7 +103,14 @@
                                         
                                         </fieldset>
                                     </div>
-    
+
+                                    <div class="payment-verify col-md-12" style="margin-top: 3%;">
+                                        <fieldset>
+                                            <span>adjunte aquí el comprobante del pago de su inscripción</span>
+                                                <form action="/action_page.php">
+                                                <input type="file" id="myFile" name="filename" required for={{form.filename}}
+                                        </fieldset>
+                                    </div> 
                                     <div class="col-md-12 " style="margin-top: 3%; ">
                                         <fieldset>
                                             <button type="submit " id="form-submit " class="button ">
@@ -241,13 +241,12 @@
                 "Blanco":"Blanco",
                 "Azul":"Azul",
                 "Purpura":"Purpura",
-                "Marrón":"Marrón",
+                "Marron":"Marrón",
                 "Negro": "Negro"
             };
 
             $("#fechaNacimiento").change(function() {
                 var date = new Date($('#fechaNacimiento').val());
-                console.log(date.getFullYear())
                 if (date.getFullYear() >= "2002") {
                     $("#cinturon").empty();
                     $.each(kidBelt, function(key, value) {
@@ -263,6 +262,96 @@
                             .attr("value", key)
                             .text(value));
                     });
+                }
+            })
+        });
+    </script>
+    <script>
+        $(document).ready(function (){
+            var maleWeight = {
+                "":"Categoría",
+                "Gallo": "Gallo ( Max 57.5 kg )",
+                "Pluma": "Pluma ( Max 64 kg )",
+                "Pena": "Pena ( Max 70 kg)",
+                "Liviano": "Liviano ( Max 76 kg)",
+                "Medio": "Medio ( Max 82.3 kg)",
+                "Medio Pesado": "Medio Pesado ( Max 88.3 kg)",
+                "Pesado": "Pesado ( Max 94.3 kg)",
+                "Super Pesado": "Super Pesado ( Max 100.5 kg)",
+                "Pesadisimo": "Pesadisimo( libre )"
+            };
+            var femaleWeight = {
+                "":"Categoría",
+                "Pluma": "Pluma ( Max 53.5 kg )",
+                "Pena": "Pena ( Max 58.5 kg)",
+                "Liviano": "Liviano ( Max 64 kg)",
+                "Medio": "Medio ( Max 69 kg)",
+                "Medio Pesado": "Medio Pesado ( Max 74 kg)",
+                "Pesado": "Pesado ( libre)",
+
+            };
+            var maleWeightDefault = {
+                "":"Categoría",
+                "Infantil": "Infantil",
+                "Gallo": "Gallo ( Max 57.5 kg )",
+                "Pluma": "Pluma ( Max 64 kg )",
+                "Pena": "Pena ( Max 70 kg)",
+                "Liviano": "Liviano ( Max 76 kg)",
+                "Medio": "Medio ( Max 82.3 kg)",
+                "Medio Pesado": "Medio Pesado ( Max 88.3 kg)",
+                "Pesado": "Pesado ( Max 94.3 kg)",
+                "Super Pesado": "Super Pesado ( Max 100.5 kg)",
+                "Pesadisimo": "Pesadisimo( libre )"
+            };
+            var femaleWeightDefault = {
+                "":"Categoría",
+                "Infantil": "Infantil",
+                "Pluma": "Pluma ( Max 53.5 kg )",
+                "Pena": "Pena ( Max 58.5 kg)",
+                "Liviano": "Liviano ( Max 64 kg)",
+                "Medio": "Medio ( Max 69 kg)",
+                "Medio Pesado": "Medio Pesado ( Max 74 kg)",
+                "Pesado": "Pesado ( libre)",
+
+            };
+            $("#cinturon").change(function() {
+                var belt = $("#cinturon :selected").text();
+                var valor = $("#genero :selected").text();
+                if (valor == "Masculino" & (belt == "Purpura" || belt == "Marrón" || belt == "Negro")) {
+                    $("#Categoria").empty();
+                    $.each(femaleWeight, function(key, value) {
+                        $("#Categoria").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+
+                }
+                else if (valor == "Femenino" & (belt == "Purpura" || belt == "Marrón" || belt == "Negro")) {
+                    $("#Categoria").empty();
+                    $.each(femaleWeight, function(key, value) {
+                        $("#Categoria").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+
+                }
+                else if (valor == "Femenino" ) {
+                    $("#Categoria").empty();
+                    $.each(femaleWeightDefault, function(key, value) {
+                        $("#Categoria").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+
+                }
+                else if (valor == "Masculino" ) {
+                    $("#Categoria").empty();
+                    $.each(maleWeightDefault, function(key, value) {
+                        $("#Categoria").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+
                 }
             })
         });

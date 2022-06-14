@@ -27,11 +27,24 @@
         <section class="section my-services" data-section="section2">
             <div class="container">
                 <div class="section-heading">
+                  {% block content %}
                     <div class="section-heading">
                         <h1>¡oss! su inscripción ha sido confirmada</h1>
                         <div class="line-dec"></div>
                         <span>todo está listo para su participación en el rionegro open</span> 
                         <div class="line-dec"></div> 
+                        {{competitor.nombres}} {{competitor.apellidos}}
+                        <div class="line-dec"></div> 
+                        <span>Usted se encuentra inscrito con los siguientes datos:</span> 
+                        <div class="line-dec"></div>
+                        <div class="line-dec"></div> 
+                        <span>cinturón: </span>{{competitor.cinturon}} 
+                        <div class="line-dec"></div>
+                        <span>bajo la academia: </span>{{competitor.academia}}
+                        <div class="line-dec"></div> 
+                        <span>compitiendo en la categoría: </span>{{competitor.categoriaPeso}} 
+                        <div class="line-dec"></div>
+                        <span>de genero: </span> {{competitor.genero}}
                         <div class="line-dec"></div>
                         <span>en caso de tener dudas o inconvenientes no dude en contactar a la adminstración del evento</span>
                         <div class="col-md-12 " style="margin-top: 3%; ">
@@ -42,6 +55,7 @@
                         </div>
                         
                     </div>
+                    {% endblock %}
                 </div>
             </div>
         </section>

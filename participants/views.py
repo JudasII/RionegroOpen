@@ -1,4 +1,5 @@
 from datetime import date, datetime
+from multiprocessing import context
 from time import timezone
 from django.db import models
 from django.shortcuts import render
@@ -66,7 +67,8 @@ def hasPendingVerification(request):
             
             try: 
                 competitor= Competitor.objects.get(documento = docForm.cleaned_data['documento'])
-                return redirect(verified) if competitor.verificado else redirect(pendigVerification)
+                context = {'competitor': competitor}
+                return render(request, 'participants/success.html',context) if competitor.verificado else redirect(pendigVerification)
             except :
                 return redirect(participantNotFound)
     return render(request, 'participants/verify.html',{'form': participantID})

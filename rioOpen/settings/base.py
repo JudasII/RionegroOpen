@@ -144,7 +144,7 @@ AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 AWS_QUERYSTRING_AUTH = env('AWS_QUERYSTRING_AUTH')
 AWS_S3_FILE_OVERWRITE =env('AWS_S3_FILE_OVERWRITE')
-
+AWS_QUERYSTRING_AUTH = False
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())

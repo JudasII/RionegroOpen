@@ -135,17 +135,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # MEDIA Folder settings
 
-# S3 Bucket Configurations  
-DEFAULT_FILE_STORAGE = env('DEFAULT_FILE_STORAGE')
-
-AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID') 
-
-AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
-AWS_QUERYSTRING_AUTH = env('AWS_QUERYSTRING_AUTH')
-AWS_S3_FILE_OVERWRITE =env('AWS_S3_FILE_OVERWRITE')
-
-
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())

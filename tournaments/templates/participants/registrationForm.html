@@ -205,9 +205,10 @@
                 "Liviano": "Liviano ( Max 64 kg)",
                 "Medio": "Medio ( Max 69 kg)",
                 "Medio Pesado": "Medio Pesado ( Max 74 kg)",
-                "Pesado": "Pesado ( libre)",
+                "Pesado": "Pesado ( 79.3)",
 
             };
+
             $("#genero").change(function() {
                 var valor = $("#genero :selected").text();
                 if (valor == "Masculino") {
@@ -245,15 +246,73 @@
                 "Negro": "Negro"
             };
 
+            var maleWeight = {
+                "":"Categoría",
+                "Gallo": "Gallo ( Max 53.5.5 kg )",
+                "Pluma": "Pluma ( Max 58.5 kg )",
+                "Pena": "Pena ( Max 64 kg)",
+                "Liviano": "Liviano ( Max 69 kg)",
+                "Medio": "Medio ( Max 74 kg)",
+                "Medio Pesado": "Medio Pesado ( Max 79.3 kg)",
+                "Pesado": "Pesado ( Max 84.3 kg)",
+                "Super Pesado": "Super Pesado ( Max 89.3 kg)",
+                "Pesadisimo": "Pesadisimo( libre )"
+            };
+            var femaleWeight = {
+                "":"Categoría",
+                "Pluma": "Pluma ( Max 44.3 kg )",
+                "Pena": "Pena ( Max 48.3 kg)",
+                "Liviano": "Liviano ( Max 52.5 kg)",
+                "Medio": "Medio ( Max 60.5 kg)",
+                "Medio Pesado": "Medio Pesado ( Max 65 kg)",
+                "Pesado": "Pesado ( 69)",
+
+            };
+            var kidweight = {
+                "":"Categoría",
+                "Infantil": "Infantil",
+            };
             $("#fechaNacimiento").change(function() {
                 var date = new Date($('#fechaNacimiento').val());
-                if (date.getFullYear() >= "2002") {
+                if (date.getFullYear() >= "2010" & date.getFullYear() >= "2017") {
                     $("#cinturon").empty();
                     $.each(kidBelt, function(key, value) {
                         $("#cinturon").append($("<option></option>")
                             .attr("value", key)
                             .text(value));
                     });
+
+                    $("#Categoria").empty();
+                    $.each(kidweight, function(key, value) {
+                        $("#Categoria").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+                }
+                else if(date.getFullYear() >= "2004" & date.getFullYear() <= "2010"){
+                    $("#cinturon").empty();
+                    $.each(kidBelt, function(key, value) {
+                        $("#cinturon").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+                    var valor = $("#genero :selected").text();
+                    if (valor == "Masculino") {
+                        $("#Categoria").empty();
+                        $.each(maleWeight, function(key, value) {
+                            $("#Categoria").append($("<option></option>")
+                                .attr("value", key)
+                                .text(value));
+                        });
+                    }
+                    else if(valor == "Femenino") {
+                        $("#Categoria").empty();
+                        $.each(femaleWeight, function(key, value) {
+                            $("#Categoria").append($("<option></option>")
+                                .attr("value", key)
+                                .text(value));
+                        });
+                    }
                 }
                 else{
                     $("#cinturon").empty();

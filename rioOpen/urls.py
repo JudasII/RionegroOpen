@@ -32,4 +32,4 @@ urlpatterns = [
     path('verified/', participants.verified),
     path('userNotFOund/', participants.participantNotFound),
     path('verify/',participants.hasPendingVerification),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

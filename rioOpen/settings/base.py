@@ -16,6 +16,12 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -23,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '05egi518h8uq@tv!f38*+0g!+$v*(0ne@4d2ptb%zc)95$szhq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['rionegroopen.herokuapp.com']
 
@@ -39,11 +45,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tournaments',
     'participants',
+    'storages',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -126,8 +134,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # MEDIA Folder settings
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL = '/media/'
+
+# S3 Bucket Configurations  
+DEFAULT_FILE_STORAGE = env('DEFAULT_FILE_STORAGE')
+
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID') 
+
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_QUERYSTRING_AUTH = env('AWS_QUERYSTRING_AUTH')
+AWS_S3_FILE_OVERWRITE =env('AWS_S3_FILE_OVERWRITE')
+
 
 # Configure Django App for Heroku.
 import django_heroku

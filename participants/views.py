@@ -13,11 +13,12 @@ def age(birthdate):
     age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
     return age
 def ageDivision(_age):
-    if(_age >= 5 & _age < 12):
+    print(_age)
+    if(_age >= 5 and _age < 12):
         return " niño"
-    elif(_age >=12 & _age < 18):
+    elif(_age >=12 and _age < 18):
         return "juvenil"
-    elif(_age >=18 & _age < 35 ):
+    elif(_age >=18 and _age < 35 ):
         return "adulto"
     elif(_age >= 35):
         return "master"

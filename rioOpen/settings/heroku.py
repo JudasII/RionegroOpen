@@ -28,7 +28,7 @@ DATABASES = {
 }
 
 # S3 Bucket Configurations  
-DEFAULT_FILE_STORAGE = env('DEFAULT_FILE_STORAGE')
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID') 
 

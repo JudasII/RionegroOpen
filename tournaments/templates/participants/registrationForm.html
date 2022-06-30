@@ -275,7 +275,8 @@
             };
             $("#fechaNacimiento").change(function() {
                 var date = new Date($('#fechaNacimiento').val());
-                if (date.getFullYear() >= "2010" & date.getFullYear() >= "2017") {
+                if (date.getFullYear() >= "2010" || date.getFullYear() >= "2011" || date.getFullYear() >= "2012" || date.getFullYear() >= "2013"
+                || date.getFullYear() >= "2014" || date.getFullYear() >= "2015" || date.getFullYear() >= "2016" || date.getFullYear() >= "2017") {
                     $("#cinturon").empty();
                     $.each(kidBelt, function(key, value) {
                         $("#cinturon").append($("<option></option>")

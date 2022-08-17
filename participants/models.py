@@ -5,7 +5,7 @@ from django.db import models
 class Competitor(models.Model):
     nombres= models.CharField(max_length=50,blank= True)
     apellidos= models.CharField(max_length=50,blank= True )
-    documento = models.IntegerField(blank= True )
+    documento = models.CharField(blank= True, max_length= 50 )
     genero = models.CharField(max_length=50,blank= True )
     academia= models.CharField(max_length=50,blank= True )
     cinturon = models.CharField(max_length=50,blank= True )

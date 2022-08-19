@@ -4,7 +4,7 @@ from django import forms
 class participants(forms.Form):
     nombres = forms.CharField(label='nombres', max_length=50)
     apellidos = forms.CharField(label='apellidos', max_length=50)
-    documento = forms.IntegerField(label= "documento")
+    documento = forms.CharField(label= "documento")
     genero = forms.CharField(label="genero", max_length=50)
     academia = forms.CharField(label="academia",max_length=50)
     fechaNacimiento = forms.CharField(label="fechaNacimiento")

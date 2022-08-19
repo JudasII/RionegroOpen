@@ -15,12 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 import tournaments.views as tournaments
 import participants.views as participants
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', tournaments.list, name='tournaments'),
+    path('base/', tournaments.list, name='tournaments'),
+    path('weightTable/', participants.weight),
+    path('payment/', participants.pay),
     path('register/', participants.register, name = 'register'),
     path('pending/', participants.pendigVerification),
     path('verified/', participants.verified),

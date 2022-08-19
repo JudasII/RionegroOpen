@@ -1,14 +1,109 @@
 <!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- ===== CSS ===== -->
+    {% load static %}
+    <!--link rel="stylesheet" href="{% static 'participants/styles.css' %}"-->
+    <link rel="stylesheet" href="../../static/participants/vendor/bootstrap/css/bootstrap.css"  />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../../static/participants/css/fontawesome.css" />
+    <link rel="stylesheet" href="../../static/participants/css/templatemo-style.css" />
+    <link rel="stylesheet" href="../../static/participants/css/owl.css" />
+    <link rel="stylesheet" href="../../static/participants/css/lightbox.css" />
+
+</head>
+
 <body>
-    {% block content %}
-    <form enctype="multipart/form-data" action="/verify/" method="post"> {% csrf_token %}
-        <div class="input-field">
-            <input type="text" placeholder="numero de documento" required for= {{form.documento}}>ingrese su numero de documento aqui </input>
-            <i class="uil uil-user"></i>
-        </div>
-        <div class="input-field button">
-            <button href="#" class="text ">verificar</button>
-        </div> 
-    </form>
-{%endblock%}
+    <div id="page-wraper">
+        <section class="section my-services" data-section="section2">
+            <div class="container">
+              <div class="section-heading">
+                <h2>Ingrese su número de documento para verificar el estado de su inscripción</h2>
+                <div class="line-dec"></div>
+                {% block content %}
+                    <form enctype="multipart/form-data" action="/verify/" method="post"> {% csrf_token %}
+                        <div class="col-md-12">
+                            
+                            <input type="text" placeholder="número de documento" class="form-control" required for= {{form.documento}}>
+                        </div>
+                        <div class="input-field button" style="margin-top: 3%; ">
+                            <button href="#" class="text ">Verificar</button>
+                        </div> 
+                    </form>
+                {%endblock%}
+              </div>
+            </div>
+          </section>
+    
+    </div>
+    
+
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../static/participants/vendor/jquery/jquery.js"></script>
+    <script src="../../static/participants/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <script src="../../static/participants/js/isotope.js"></script>
+    <script src="../../static/participants/js/owl-carousel.js"></script>
+    <script src="../../static/participants/js/lightbox.js"></script>
+    <script src="../../static/participants/js/custom.js"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
 </body>
+

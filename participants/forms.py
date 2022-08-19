@@ -15,5 +15,5 @@ class participants(forms.Form):
     filename = forms.ImageField()
 
 class participantID(forms.Form):
-    documento = forms.IntegerField(label= "documento")
+    documento = forms.CharField(label= "documento")
 

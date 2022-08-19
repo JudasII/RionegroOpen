@@ -32,17 +32,20 @@
                     <div class="line-dec"></div>
                     <span>Completa el formulario para registrarte en el torneo</span>
                 </div>
+
+                <div class="row" style="margin-left: 35%;">
+                    <div class="col-md-12 " style="margin-bottom: 3%; ">
+                        <a class ="button"  href="/payment/" target="_blank">
+                            <button>Realice el pago de su inscripción</button>
+                        </a>
+                    </div>
+                </div>
                 {% block content %}
                 <div class="row">
                     <div class="right-content">
                         <div class="container">
                             <form id="contact" enctype="multipart/form-data" action="/register/" method="post"> {% csrf_token %}
                                 <div class="row">
-                                    <div class="col-md-12 " style="margin-bottom: 5%; ">
-                                          <a class ="button"  href="/payment/" target="_blank">
-                                            <button>Realice el pago de su inscripción</button>
-                                          </a>
-                                    </div>
                                     <div class="col-md-6">
                                         <fieldset>
                                             <input name="nombres" type="text" class="form-control" id="nombres" placeholder="Nombres" required for={{form.nombres}} 

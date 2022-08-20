@@ -33,8 +33,8 @@
                     <span>Completa el formulario para registrarte en el torneo</span>
                 </div>
 
-                <div class="row" style="left:50%;margin-bottom: 5%; ; transform: translate(-50%,-50%);position: absolute;-ms-transform: translate(-50%,-50%);">
-                    <div class="col-md-12 " style="margin-bottom: 3%; ">
+                <div class="row">
+                    <div class="col-md-12 " style="margin-bottom: 5%;justify-content: center; display: flex; "">
                         <a class ="button"  href="/payment/" target="_blank">
                             <button>Realice el pago de su inscripción</button>
                         </a>
@@ -246,7 +246,7 @@
                             .text(value));
                     });
                     $("#cinturon").empty();
-                    $.each(femaleBelt, function(key, value) {
+                    $.each(female, function(key, value) {
                         $("#cinturon").append($("<option></option>")
                             .attr("value", key)
                             .text(value));

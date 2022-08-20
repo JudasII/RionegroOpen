@@ -199,12 +199,14 @@
             var femaleWeight = {
                 "":"Categoría",
                 "Infantil": "Infantil",
+                "Gallo": "Gallo ( Max 48.5 kg )",
                 "Pluma": "Pluma ( Max 53.5 kg )",
                 "Pena": "Pena ( Max 58.5 kg)",
                 "Liviano": "Liviano ( Max 64 kg)",
                 "Medio": "Medio ( Max 69 kg)",
                 "Medio Pesado": "Medio Pesado ( Max 74 kg)",
                 "Pesado": "Pesado ( 79.3)",
+                "Super Pesado": "Super Pesado ( libre)"
 
             };
 
@@ -260,12 +262,14 @@
             };
             var femaleWeight = {
                 "":"Categoría",
-                "Pluma": "Pluma ( Max 44.3 kg )",
-                "Pena": "Pena ( Max 48.3 kg)",
-                "Liviano": "Liviano ( Max 52.5 kg)",
-                "Medio": "Medio ( Max 60.5 kg)",
-                "Medio Pesado": "Medio Pesado ( Max 65 kg)",
-                "Pesado": "Pesado ( 69)",
+                "Gallo": "Gallo ( Max 44.3 kg )",
+                "Pluma": "Pluma ( Max 48.3 kg)",
+                "Pena": "Pena ( Max 52.5 kg)",
+                "Liviano": "Liviano ( Max 56.5 kg)",
+                "Medio": "Medio  ( Max 60.5 kg)",
+                "Medio Pesado": "Medio Pesado ( 65 Kg)",
+                "Pesado": "Pesado ( 69 Kg)",
+                "Super Pesado": "Super Pesado ( libre)",
 
             };
             var kidweight = {
@@ -342,12 +346,14 @@
             };
             var femaleWeight = {
                 "":"Categoría",
+                "Gallo": "Gallo ( Max 48.5 kg )",
                 "Pluma": "Pluma ( Max 53.5 kg )",
                 "Pena": "Pena ( Max 58.5 kg)",
                 "Liviano": "Liviano ( Max 64 kg)",
                 "Medio": "Medio ( Max 69 kg)",
                 "Medio Pesado": "Medio Pesado ( Max 74 kg)",
-                "Pesado": "Pesado ( libre)",
+                "Pesado": "Pesado ( 79.3)",
+                "Super Pesado": "Super Pesado ( libre)"
 
             };
             var maleWeightDefault = {
@@ -366,12 +372,14 @@
             var femaleWeightDefault = {
                 "":"Categoría",
                 "Infantil": "Infantil",
+                "Gallo": "Gallo ( Max 48.5 kg )",
                 "Pluma": "Pluma ( Max 53.5 kg )",
                 "Pena": "Pena ( Max 58.5 kg)",
                 "Liviano": "Liviano ( Max 64 kg)",
                 "Medio": "Medio ( Max 69 kg)",
                 "Medio Pesado": "Medio Pesado ( Max 74 kg)",
-                "Pesado": "Pesado ( libre)",
+                "Pesado": "Pesado ( 79.3)",
+                "Super Pesado": "Super Pesado ( libre)"
 
             };
             $("#cinturon").change(function() {
@@ -379,7 +387,7 @@
                 var valor = $("#genero :selected").text();
                 if (valor == "Masculino" & (belt == "Purpura" || belt == "Marrón" || belt == "Negro")) {
                     $("#Categoria").empty();
-                    $.each(femaleWeight, function(key, value) {
+                    $.each(maleWeight, function(key, value) {
                         $("#Categoria").append($("<option></option>")
                             .attr("value", key)
                             .text(value));

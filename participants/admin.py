@@ -9,7 +9,7 @@ class CompetitorAdmin(admin.ModelAdmin):
     #actions_on_bottom = False
     #actions_on_top = True
 
-    fields = ('nombres', 'apellidos','documento', 'genero','academia', 'cinturon','pais','ciudad','fechaNacimiento', 'edad', 'categoriaEdad', 'categoriaPeso', 'comprobantePago','verificado', 'comprobante')
+    fields = ('nombres', 'apellidos','documento', 'genero','academia', 'cinturon','pais','ciudad','fechaNacimiento', 'edad', 'categoriaEdad', 'categoriaPeso', 'comprobantePago','verificado', 'comprobante', 'telefono','igtag')
     list_display = [
         'nombres',
         'apellidos',
@@ -19,6 +19,7 @@ class CompetitorAdmin(admin.ModelAdmin):
         'edad',
         'categoriaEdad',
         'categoriaPeso',
+        'telefono',
         'comprobantePago',
         'verificado',
     ]

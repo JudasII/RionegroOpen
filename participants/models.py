@@ -17,6 +17,8 @@ class Competitor(models.Model):
     categoriaEdad= models.CharField(max_length=50,blank= True )
     categoriaPeso= models.CharField(max_length=50,blank= True )
     comprobantePago = models.FileField(upload_to= 'media',blank= True)
+    telefono = models.CharField(max_length=50,blank= True )
+    igtag = models.CharField(max_length=50,blank= True )
     verificado= models.BooleanField(default=False)
 
     @property

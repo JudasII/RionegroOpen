@@ -45,6 +45,8 @@ def register(request):
             competitor.fechaNacimiento = bday
             competitor.categoriaEdad= ageDivision(edad)
             competitor.categoriaPeso=form.cleaned_data['Categoria']
+            competitor.telefono= form.cleaned_data['telefono']
+            competitor.igtag= form.cleaned_data['igtag']
             competitor.comprobantePago = form.cleaned_data['filename']
             competitor.verificado = False
             competitor.save()

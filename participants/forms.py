@@ -12,6 +12,8 @@ class participants(forms.Form):
     pais = forms.CharField(label = "pais",max_length=50)
     ciudad = forms.CharField(label="ciudad", max_length= 50)
     Categoria = forms.CharField(label="Categoria", max_length=50)
+    telefono = forms.CharField(label="telefono", max_length=50)
+    igtag = forms.CharField(label="igtag", max_length=50)
     filename = forms.ImageField()
 
 class participantID(forms.Form):

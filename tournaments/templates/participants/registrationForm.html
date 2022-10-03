@@ -77,6 +77,19 @@
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12">
+                                        <label ><h5>la administración del torneo te contactará de ser necesario.</h5></label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input name="telefono" type="text" class="form-control" id="telefono" placeholder="Ingrese su número de contacto " required for={{form.telefono}} 
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <input name="igtag" type="text" class="form-control" id="igtag" placeholder="Ingrese su tag (@) de instagram" required for={{form.igtag}} 
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
                                         <fieldset>
                                             <span>Fecha de Nacimiento</span><br>
                                             <input  id="fechaNacimiento" type="date" min="1930-04-01" max="2020-01-01" class="form-control" placeholder="Fecha de nacimiento" required for={{form.fechaNacimiento }} 
@@ -246,7 +259,7 @@
                             .text(value));
                     });
                     $("#cinturon").empty();
-                    $.each(female, function(key, value) {
+                    $.each(femaleBelt, function(key, value) {
                         $("#cinturon").append($("<option></option>")
                             .attr("value", key)
                             .text(value));
@@ -318,7 +331,8 @@
                             .text(value));
                     });
                 }
-                else if(date.getFullYear() >= "2004" & date.getFullYear() <= "2010"){
+                else if(date.getFullYear() >= "2002" || date.getFullYear() >= "2003" || date.getFullYear() >= "2004" || date.getFullYear() >= "2005"
+                || date.getFullYear() >= "2006" || date.getFullYear() >= "2007" || date.getFullYear() >= "2008" || date.getFullYear() >= "2009"){
                     $("#cinturon").empty();
                     $.each(kidBelt, function(key, value) {
                         $("#cinturon").append($("<option></option>")
@@ -406,6 +420,9 @@
                 "Super Pesado": "Super Pesado ( libre)"
 
             };
+            var absolute ={
+                "Absoluto":"Absoluto"
+            }
             $("#cinturon").change(function() {
                 var belt = $("#cinturon :selected").text();
                 var valor = $("#genero :selected").text();
@@ -418,9 +435,9 @@
                     });
 
                 }
-                else if (valor == "Femenino" & (belt == "Purpura" || belt == "Marrón" || belt == "Negro")) {
+                else if (valor == "Femenino" & (belt == "Purpura" )) {
                     $("#Categoria").empty();
-                    $.each(femaleWeight, function(key, value) {
+                    $.each(absolute, function(key, value) {
                         $("#Categoria").append($("<option></option>")
                             .attr("value", key)
                             .text(value));

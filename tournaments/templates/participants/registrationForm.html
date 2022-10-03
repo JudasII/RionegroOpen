@@ -32,6 +32,14 @@
                     <div class="line-dec"></div>
                     <span>Completa el formulario para registrarte en el torneo</span>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-12 " style="margin-bottom: 5%;justify-content: center; display: flex; "">
+                        <a class ="button"  href="/payment/" target="_blank">
+                            <button>Realice el pago de su inscripción</button>
+                        </a>
+                    </div>
+                </div>
                 {% block content %}
                 <div class="row">
                     <div class="right-content">
@@ -136,16 +144,6 @@
                                     <div class="line-dec"></div>
                                     <label ><h5>IMPORTANTE: la categoría infantil no tiene división por peso</h5></label>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12 " style="margin-top: 3%; ">
-                                        <fieldset>
-                                          <a class ="button"  href="/payment/" target="_blank">
-                                            <button>Realice el pago de su inscripción</button>
-                                          </a>
-                                          
-                                        </fieldset>
-                                    </div>
-                                </div>
                             </div>
                             <div class="col-md-12 " style="margin-top: 3%; ">
                                 <span class="text ">¿Ya ha completado su registro?</span>
@@ -201,13 +199,27 @@
             var femaleWeight = {
                 "":"Categoría",
                 "Infantil": "Infantil",
+                "Gallo": "Gallo ( Max 48.5 kg )",
                 "Pluma": "Pluma ( Max 53.5 kg )",
                 "Pena": "Pena ( Max 58.5 kg)",
                 "Liviano": "Liviano ( Max 64 kg)",
                 "Medio": "Medio ( Max 69 kg)",
                 "Medio Pesado": "Medio Pesado ( Max 74 kg)",
                 "Pesado": "Pesado ( 79.3)",
+                "Super Pesado": "Super Pesado ( libre)"
 
+            };
+            var maleBelt ={
+                "Blanco":"Blanco",
+                "Azul":"Azul",
+                "Purpura":"Purpura",
+                "Marron":"Marrón",
+                "Negro": "Negro"
+            };
+            var femaleBelt ={
+                "Blanco":"Blanco",
+                "Azul":"Azul",
+                "Purpura":"Purpura"
             };
 
             $("#genero").change(function() {
@@ -219,11 +231,23 @@
                             .attr("value", key)
                             .text(value));
                     });
+                    $("#cinturon").empty();
+                    $.each(maleBelt, function(key, value) {
+                        $("#cinturon").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
                 }
                 else if(valor == "Femenino") {
                     $("#Categoria").empty();
                     $.each(femaleWeight, function(key, value) {
                         $("#Categoria").append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                    });
+                    $("#cinturon").empty();
+                    $.each(female, function(key, value) {
+                        $("#cinturon").append($("<option></option>")
                             .attr("value", key)
                             .text(value));
                     });
@@ -262,12 +286,14 @@
             };
             var femaleWeight = {
                 "":"Categoría",
-                "Pluma": "Pluma ( Max 44.3 kg )",
-                "Pena": "Pena ( Max 48.3 kg)",
-                "Liviano": "Liviano ( Max 52.5 kg)",
-                "Medio": "Medio ( Max 60.5 kg)",
-                "Medio Pesado": "Medio Pesado ( Max 65 kg)",
-                "Pesado": "Pesado ( 69)",
+                "Gallo": "Gallo ( Max 44.3 kg )",
+                "Pluma": "Pluma ( Max 48.3 kg)",
+                "Pena": "Pena ( Max 52.5 kg)",
+                "Liviano": "Liviano ( Max 56.5 kg)",
+                "Medio": "Medio  ( Max 60.5 kg)",
+                "Medio Pesado": "Medio Pesado ( 65 Kg)",
+                "Pesado": "Pesado ( 69 Kg)",
+                "Super Pesado": "Super Pesado ( libre)",
 
             };
             var kidweight = {
@@ -344,12 +370,14 @@
             };
             var femaleWeight = {
                 "":"Categoría",
+                "Gallo": "Gallo ( Max 48.5 kg )",
                 "Pluma": "Pluma ( Max 53.5 kg )",
                 "Pena": "Pena ( Max 58.5 kg)",
                 "Liviano": "Liviano ( Max 64 kg)",
                 "Medio": "Medio ( Max 69 kg)",
                 "Medio Pesado": "Medio Pesado ( Max 74 kg)",
-                "Pesado": "Pesado ( libre)",
+                "Pesado": "Pesado ( 79.3)",
+                "Super Pesado": "Super Pesado ( libre)"
 
             };
             var maleWeightDefault = {
@@ -368,12 +396,14 @@
             var femaleWeightDefault = {
                 "":"Categoría",
                 "Infantil": "Infantil",
+                "Gallo": "Gallo ( Max 48.5 kg )",
                 "Pluma": "Pluma ( Max 53.5 kg )",
                 "Pena": "Pena ( Max 58.5 kg)",
                 "Liviano": "Liviano ( Max 64 kg)",
                 "Medio": "Medio ( Max 69 kg)",
                 "Medio Pesado": "Medio Pesado ( Max 74 kg)",
-                "Pesado": "Pesado ( libre)",
+                "Pesado": "Pesado ( 79.3)",
+                "Super Pesado": "Super Pesado ( libre)"
 
             };
             $("#cinturon").change(function() {
@@ -381,7 +411,7 @@
                 var valor = $("#genero :selected").text();
                 if (valor == "Masculino" & (belt == "Purpura" || belt == "Marrón" || belt == "Negro")) {
                     $("#Categoria").empty();
-                    $.each(femaleWeight, function(key, value) {
+                    $.each(maleWeight, function(key, value) {
                         $("#Categoria").append($("<option></option>")
                             .attr("value", key)
                             .text(value));
